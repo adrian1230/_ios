@@ -120,11 +120,15 @@ struct SignUp : View {
          ZStack(alignment: .topLeading) {
              GeometryReader {_ in
                  VStack {
+                     Image("heyo").resizable()
+                        .frame(width: 152.0, height: 152.0)
+                        .padding(.top,25)
+                    
                      Text("Hey Mate, Let's Shop!")
                          .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                          .fontWeight(.bold)
                          .foregroundColor(Color("Color"))
-                         .padding(.top,45)
+                         .padding(.top,25)
                      TextField("Email",text:self.$email)
                          .padding()
                          .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
