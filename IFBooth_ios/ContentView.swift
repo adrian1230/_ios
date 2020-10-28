@@ -111,6 +111,7 @@ struct Login : View {
 struct SignUp : View {
      @State var color = Color.black.opacity(0.4)
      @State var email = ""
+     @State var username = ""
      @State var pass = ""
      @State var repass = ""
      @State var visible = false
@@ -129,6 +130,10 @@ struct SignUp : View {
                          .fontWeight(.bold)
                          .foregroundColor(Color("Color"))
                          .padding(.top,25)
+                     TextField("Username",text:self.$username)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.username != "" ? Color("Color"):self.color,lineWidth: 2))
+                        .padding(.top,25)
                      TextField("Email",text:self.$email)
                          .padding()
                          .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
@@ -170,7 +175,7 @@ struct SignUp : View {
                         }
                     }
                     .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color"):self.color,lineWidth: 2))
+                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("Color"):self.color,lineWidth: 2))
                     .padding(.top,25)
                      
                      
