@@ -32,6 +32,9 @@ struct Home : View {
                 
                 Login(show:self.$show)
             }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
@@ -47,7 +50,9 @@ struct Login : View {
         ZStack(alignment: .topTrailing) {
             GeometryReader {_ in
                 VStack {
-                    Image("jojo")
+                    Image("jojo").resizable()
+                        .frame(width: 252.0, height: 252.0)
+                        .padding(.top,25)
                     Text("Come Get It")
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .fontWeight(.bold)
@@ -214,5 +219,6 @@ struct SignUp : View {
              }
              .padding()
          }
+         .navigationBarBackButtonHidden(true)
      }
  }
