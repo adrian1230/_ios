@@ -251,7 +251,7 @@ struct SignUp : View {
         GeometryReader{_ in
             VStack {
                 HStack{
-                    Text("Err")
+                    Text("Err 404")
                         .font(.title)
                         .foregroundColor(self.color)
                         .fontWeight(.bold)
