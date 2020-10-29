@@ -50,14 +50,14 @@ struct Login : View {
         ZStack(alignment: .topTrailing) {
             GeometryReader {_ in
                 VStack {
-                    Image("jojo").resizable()
+                    Image("bac").resizable()
                         .frame(width: 252.0, height: 252.0)
                         .padding(.top,25)
                     Text("Come Get It")
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .fontWeight(.bold)
                         .foregroundColor(Color("Color2"))
-                        .padding(.top,35)
+                        .padding(.top,20)
                     TextField("Email",text:self.$email)
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
