@@ -1,4 +1,4 @@
- //
+//
 //  ContentView.swift
 //  IFBooth_ios
 //
@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
     var body: some View {
@@ -22,19 +23,33 @@ struct ContentView_Previews: PreviewProvider {
  
 struct Home : View {
     @State var show = false
+    @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+    
     var body: some View {
         NavigationView{
-            ZStack {
-                NavigationLink(destination: SignUp(show: self.$show),isActive:self.$show) {
-                    Text("")
+            VStack {
+                if self.status {
+                    
                 }
-                .hidden()
-                
-                Login(show:self.$show)
+                else {
+                    ZStack {
+                        NavigationLink(destination: SignUp(show: self.$show),isActive:self.$show) {
+                            Text("")
+                        }
+                        .hidden()
+                        
+                        Login(show:self.$show)
+                    }
+                }
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            .onAppear {
+                NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) {(_) in
+                    
+                }
+            }
         }
     }
 }
@@ -131,7 +146,15 @@ struct Login : View {
     
     func verify() {
         if self.email != "" && self.pass != "" {
-            
+            Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res,err) in
+                if err != nil {
+                    self.error = err!.localizedDescription
+                    self.alert.toggle()
+                }
+                print("success")
+                UserDefaults.standard.set(true,forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"),object: nil)
+            }
         }
         else {
             self.error = "Please fill in all the blank"
