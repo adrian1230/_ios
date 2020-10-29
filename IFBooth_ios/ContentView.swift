@@ -261,13 +261,13 @@ struct SignUp : View {
                 
                 Text(self.error)
                     .foregroundColor(self.color)
-                    .padding(.top)
+                    .padding(.top,10)
                     .padding(.horizontal,15)
                 
                 Button(action: {
-                    
+                    self.alert.toggle()
                 }) {
-                    Text("Cancel")
+                    Text("Gotcha")
                         .foregroundColor(Color.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)
