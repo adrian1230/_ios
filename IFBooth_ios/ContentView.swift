@@ -43,81 +43,99 @@ struct Login : View {
     @State var color = Color.black.opacity(0.4)
     @State var email = ""
     @State var pass = ""
+    @State var alert = false
+    @State var error = ""
     @State var visible = false
     @Binding var show : Bool
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            GeometryReader {_ in
-                VStack {
-                    Image("bac").resizable()
-                        .frame(width: 252.0, height: 252.0)
-                        .padding(.top,25)
-                    Text("Come Get It")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("Color2"))
-                        .padding(.top,20)
-                    TextField("Email",text:self.$email)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
-                        .padding(.top,25)
-                    HStack(spacing:15) {
-                        VStack{
-                            if self.visible {
-                                TextField("Password",text: self.$pass)
-                            }
-                            else {
-                                SecureField("Password",text:self.$pass)
-                            }
-                        }
-                        Button(action: {
-                            self.visible.toggle()
-                        }) {
-                            Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
-                                .foregroundColor(self.color)
-                        }
-                    }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color"):self.color,lineWidth: 2))
-                    .padding(.top,25)
-                    
-                    HStack {
-                        
-                        Button(action: {
-                            
-                        }) {
-                            Text("Forget password")
-                                .fontWeight(.bold)
-                                .foregroundColor(Color("Color"))
-                        }
-                    }
-                    .padding(.top,25)
-                    
-                    Button(action: {
-                        
-                    }) {
-                        Text("LogIn")
+        ZStack {
+            ZStack(alignment: .topTrailing) {
+                GeometryReader {_ in
+                    VStack {
+                        Image("bac").resizable()
+                            .frame(width: 252.0, height: 252.0)
+                            .padding(.top,25)
+                        Text("Come Get It")
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 50)
+                            .foregroundColor(Color("Color2"))
+                            .padding(.top,20)
+                        TextField("Email",text:self.$email)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
+                            .padding(.top,25)
+                        HStack(spacing:15) {
+                            VStack{
+                                if self.visible {
+                                    TextField("Password",text: self.$pass)
+                                }
+                                else {
+                                    SecureField("Password",text:self.$pass)
+                                }
+                            }
+                            Button(action: {
+                                self.visible.toggle()
+                            }) {
+                                Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
+                                    .foregroundColor(self.color)
+                            }
+                        }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color"):self.color,lineWidth: 2))
+                        .padding(.top,25)
+                        
+                        HStack {
+                            
+                            Button(action: {
+                                
+                            }) {
+                                Text("Forget password")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("Color"))
+                            }
+                        }
+                        .padding(.top,25)
+                        
+                        Button(action: {
+                            self.verify()
+                        }) {
+                            Text("LogIn")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width - 50)
+                        }
+                        .background(Color("Color2"))
+                        .cornerRadius(10)
+                        .padding(.top,20)
                     }
-                    .background(Color("Color2"))
-                    .cornerRadius(10)
-                    .padding(.top,20)
+                    .padding(.horizontal,25)
                 }
-                .padding(.horizontal,25)
+                
+                Button(action: {
+                    self.show.toggle()
+                }) {
+                    Text("Register")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("Color"))
+                }
+                .padding()
             }
             
-            Button(action: {
-                self.show.toggle()
-            }) {
-                Text("Register")
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("Color"))
+            if self.alert {
+                ErrorViewModel(alert: self.$alert,error:self.$error)
             }
-            .padding()
+        }
+    }
+    
+    func verify() {
+        if self.email != "" && self.pass != "" {
+            
+        }
+        else {
+            self.error = "Please fill in all the blank"
+            self.alert.toggle()
         }
     }
 }
@@ -223,4 +241,47 @@ struct SignUp : View {
          .navigationBarHidden(true)
          .navigationBarBackButtonHidden(true)
      }
+ }
+ 
+ struct ErrorViewModel : View {
+    @State var color = Color.black.opacity(0.4)
+    @Binding var alert : Bool
+    @Binding var error : String
+    var body : some View {
+        GeometryReader{_ in
+            VStack {
+                HStack{
+                    Text("Err")
+                        .font(.title)
+                        .foregroundColor(self.color)
+                        .fontWeight(.bold)
+                }
+                .padding(.horizontal,15)
+                .padding(.top,15)
+                
+                Text(self.error)
+                    .foregroundColor(self.color)
+                    .padding(.top)
+                    .padding(.horizontal,15)
+                
+                Button(action: {
+                    
+                }) {
+                    Text("Cancel")
+                        .foregroundColor(Color.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 120)
+                }
+                .background(Color("Color"))
+                .cornerRadius(10)
+                .padding(.bottom,10)
+            }
+            .frame(width: UIScreen.main.bounds.width - 50)
+            .background(Color.white)
+            .cornerRadius(20)
+            .padding(.horizontal,25)
+            .padding(.top,250)
+        }
+        .background(Color.gray.opacity(0.23).edgesIgnoringSafeArea(.all))
+    }
  }
