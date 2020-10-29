@@ -21,9 +21,17 @@ struct ContentView_Previews: PreviewProvider {
 
  
 struct Home : View {
+    @State var show = false
     var body: some View {
-        VStack {
-            SignUp()
+        NavigationView{
+            ZStack {
+                NavigationLink(destination: SignUp(show: self.$show),isActive:self.$show) {
+                    Text("")
+                }
+                .hidden()
+                
+                Login(show:self.$show)
+            }
         }
     }
 }
@@ -33,6 +41,7 @@ struct Login : View {
     @State var email = ""
     @State var pass = ""
     @State var visible = false
+    @Binding var show : Bool
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -97,7 +106,7 @@ struct Login : View {
             }
             
             Button(action: {
-                
+                self.show.toggle()
             }) {
                 Text("Register")
                     .fontWeight(.bold)
@@ -116,13 +125,14 @@ struct SignUp : View {
      @State var repass = ""
      @State var visible = false
      @State var revisible = false
+     @Binding var show : Bool
      
      var body: some View {
          ZStack(alignment: .topLeading) {
              GeometryReader {_ in
                  VStack {
                      Image("heyo").resizable()
-                        .frame(width: 152.0, height: 152.0)
+                        .frame(width: 172.0, height: 172.0)
                         .padding(.top,25)
                     
                      Text("Hey Mate, Let's Shop!")
@@ -196,7 +206,7 @@ struct SignUp : View {
              }
              
              Button(action: {
-                 
+                self.show.toggle()
              }) {
                  Image(systemName: "chevron.left")
                     .font(.title)
