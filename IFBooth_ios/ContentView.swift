@@ -67,7 +67,7 @@ struct HomeScreen : View {
                 NotificationCenter.default.post(name:NSNotification.Name("status"),object:nil)
             }){
                 Text("logout")
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.white)
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 50)
             }
