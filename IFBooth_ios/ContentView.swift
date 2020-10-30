@@ -183,7 +183,6 @@ struct Login : View {
                     self.error = err!.localizedDescription
                     self.alert.toggle()
                 }
-                print("success")
                 UserDefaults.standard.set(true,forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"),object: nil)
             }
@@ -208,96 +207,106 @@ struct SignUp : View {
      @State var error = ""
      
      var body: some View {
-         ZStack(alignment: .topLeading) {
-             GeometryReader {_ in
-                 VStack {
-                     Image("heyo").resizable()
-                        .frame(width: 172.0, height: 172.0)
-                        .padding(.top,25)
-                    
-                     Text("Hey Mate, Let's Shop!")
-                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                         .fontWeight(.bold)
-                         .foregroundColor(Color("Color"))
-                         .padding(.top,25)
-                     TextField("Username",text:self.$username)
+        ZStack{
+            ZStack(alignment: .topLeading) {
+                GeometryReader {_ in
+                    VStack {
+                        Image("heyo").resizable()
+                           .frame(width: 172.0, height: 172.0)
+                           .padding(.top,25)
+                       
+                        Text("Hey Mate, Let's Shop!")
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("Color"))
+                            .padding(.top,25)
+                        TextField("Username",text:self.$username)
+                           .padding()
+                           .background(RoundedRectangle(cornerRadius: 4).stroke(self.username != "" ? Color("Color"):self.color,lineWidth: 2))
+                           .padding(.top,25)
+                        TextField("Email",text:self.$email)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
+                            .padding(.top,25)
+                        HStack(spacing:15) {
+                            VStack{
+                                if self.visible {
+                                    TextField("Password",text: self.$pass)
+                                }
+                                else {
+                                    SecureField("Password",text:self.$pass)
+                                }
+                            }
+                            Button(action: {
+                                self.visible.toggle()
+                            }) {
+                                Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
+                                    .foregroundColor(self.color)
+                            }
+                        }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.username != "" ? Color("Color"):self.color,lineWidth: 2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color"):self.color,lineWidth: 2))
                         .padding(.top,25)
-                     TextField("Email",text:self.$email)
-                         .padding()
-                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
-                         .padding(.top,25)
-                     HStack(spacing:15) {
-                         VStack{
-                             if self.visible {
-                                 TextField("Password",text: self.$pass)
-                             }
-                             else {
-                                 SecureField("Password",text:self.$pass)
-                             }
-                         }
-                         Button(action: {
-                             self.visible.toggle()
-                         }) {
-                             Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
-                                 .foregroundColor(self.color)
-                         }
-                     }
-                     .padding()
-                     .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color"):self.color,lineWidth: 2))
-                     .padding(.top,25)
-                    
-                     HStack(spacing:15) {
-                        VStack{
-                            if self.revisible {
-                                TextField("Confirm Password",text: self.$repass)
-                            }
-                            else {
-                                SecureField("Confirm Password",text:self.$repass)
-                            }
-                        }
+                       
+                        HStack(spacing:15) {
+                           VStack{
+                               if self.revisible {
+                                   TextField("Confirm Password",text: self.$repass)
+                               }
+                               else {
+                                   SecureField("Confirm Password",text:self.$repass)
+                               }
+                           }
+                           Button(action: {
+                               self.revisible.toggle()
+                           }) {
+                               Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
+                                   .foregroundColor(self.color)
+                           }
+                       }
+                       .padding()
+                       .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("Color"):self.color,lineWidth: 2))
+                       .padding(.top,25)
+                        
+                        
                         Button(action: {
-                            self.revisible.toggle()
+                            
                         }) {
-                            Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
-                                .foregroundColor(self.color)
+                            Text("Register")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width - 50)
                         }
+                        .background(Color("Color2"))
+                        .cornerRadius(15)
+                        .padding(.top,20)
                     }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("Color"):self.color,lineWidth: 2))
-                    .padding(.top,25)
-                     
-                     
-                     Button(action: {
-                         
-                     }) {
-                         Text("Register")
-                             .fontWeight(.bold)
-                             .foregroundColor(.white)
-                             .padding(.vertical)
-                             .frame(width: UIScreen.main.bounds.width - 50)
-                     }
-                     .background(Color("Color2"))
-                     .cornerRadius(15)
-                     .padding(.top,20)
-                 }
-                 .padding(.horizontal,25)
-             }
-             
-             Button(action: {
-                self.show.toggle()
-             }) {
-                 Image(systemName: "chevron.left")
-                    .font(.title)
-                    .foregroundColor(Color("Color2"))
-             }
-             .padding()
-         }
-         .navigationBarTitle("")
-         .navigationBarHidden(true)
-         .navigationBarBackButtonHidden(true)
+                    .padding(.horizontal,25)
+                }
+                
+                Button(action: {
+                   self.show.toggle()
+                }) {
+                    Image(systemName: "chevron.left")
+                       .font(.title)
+                       .foregroundColor(Color("Color2"))
+                }
+                .padding()
+            }
+            
+            if self.alert {
+                ErrorViewModel(alert: self.$alert, error: self.$error)
+            }
+        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
      }
+    
+    func register() {
+        
+    }
  }
  
  struct ErrorViewModel : View {
