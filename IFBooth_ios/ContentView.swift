@@ -141,9 +141,9 @@ struct Login : View {
                             Button(action: {
                                 self.show.toggle()
                             }) {
-                                Text("Register")
+                                Text("Got No Cart, Come Get One")
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color("Color"))
+                                    .foregroundColor(Color("Color3"))
                             }
                             
                         }
@@ -156,7 +156,7 @@ struct Login : View {
                             }) {
                                 Text("Forget password")
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color("Color"))
+                                    .foregroundColor(Color("Color3"))
                             }
                         }
                         .padding(.top,10)
