@@ -29,7 +29,7 @@ struct Home : View {
         NavigationView{
             VStack {
                 if self.status {
-                    
+                    HomeScreen()
                 }
                 else {
                     ZStack {
@@ -47,9 +47,33 @@ struct Home : View {
             .navigationBarBackButtonHidden(true)
             .onAppear {
                 NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) {(_) in
-                    
+                    self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
                 }
             }
+        }
+    }
+}
+
+struct HomeScreen : View {
+    var body: some View {
+        VStack {
+            Text("Logged")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.black.opacity(0.8))
+            Button(action:{
+                try! Auth.auth().signOut()
+                UserDefaults.standard.set(false,forKey: "status")
+                NotificationCenter.default.post(name:NSNotification.Name("status"),object:nil)
+            }){
+                Text("logout")
+                    .foregroundColor(Color.black)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 50)
+            }
+            .background(Color("Color"))
+            .cornerRadius(10)
+            .padding(.top,10)
         }
     }
 }
