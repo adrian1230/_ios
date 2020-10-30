@@ -124,18 +124,6 @@ struct Login : View {
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color"):self.color,lineWidth: 2))
                         .padding(.top,25)
                         
-                        HStack {
-                            
-                            Button(action: {
-                                
-                            }) {
-                                Text("Forget password")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("Color"))
-                            }
-                        }
-                        .padding(.top,25)
-                        
                         Button(action: {
                             self.verify()
                         }) {
@@ -148,18 +136,35 @@ struct Login : View {
                         .background(Color("Color2"))
                         .cornerRadius(10)
                         .padding(.top,20)
+                        
+                        HStack {
+                            Button(action: {
+                                self.show.toggle()
+                            }) {
+                                Text("Register")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("Color"))
+                            }
+                            
+                        }
+                        .padding(.top,10)
+                        
+                        HStack {
+                            
+                            Button(action: {
+                                
+                            }) {
+                                Text("Forget password")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("Color"))
+                            }
+                        }
+                        .padding(.top,10)
+                        
                     }
                     .padding(.horizontal,25)
                 }
                 
-                Button(action: {
-                    self.show.toggle()
-                }) {
-                    Text("Register")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("Color"))
-                }
-                .padding()
             }
             
             if self.alert {
@@ -196,6 +201,8 @@ struct SignUp : View {
      @State var visible = false
      @State var revisible = false
      @Binding var show : Bool
+     @State var alert = false
+     @State var error = ""
      
      var body: some View {
          ZStack(alignment: .topLeading) {

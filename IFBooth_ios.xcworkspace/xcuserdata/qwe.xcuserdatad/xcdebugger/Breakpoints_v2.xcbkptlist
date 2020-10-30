@@ -14,102 +14,10 @@
             filePath = "IFBooth_ios/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "83175DBE-102C-4D8C-93EA-76E0DB3E360C - 43088cf07a3268b5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "property wrapper backing initializer of IFBooth_ios.SignUp.email : Swift.String"
-                  moduleName = "IFBooth_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qwe/Desktop/ifbooth_ios/IFBooth_ios/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "188"
-                  endingLineNumber = "188"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  uuid = "83175DBE-102C-4D8C-93EA-76E0DB3E360C - e5675515b0c52f6f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IFBooth_ios.SignUp.email.getter : Swift.String"
-                  moduleName = "IFBooth_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qwe/Desktop/ifbooth_ios/IFBooth_ios/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "188"
-                  endingLineNumber = "188"
-                  offsetFromSymbolStart = "198">
-               </Location>
-               <Location
-                  uuid = "83175DBE-102C-4D8C-93EA-76E0DB3E360C - cb6057b007d13f63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IFBooth_ios.SignUp.email.setter : Swift.String"
-                  moduleName = "IFBooth_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qwe/Desktop/ifbooth_ios/IFBooth_ios/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "188"
-                  endingLineNumber = "188"
-                  offsetFromSymbolStart = "207">
-               </Location>
-               <Location
-                  uuid = "83175DBE-102C-4D8C-93EA-76E0DB3E360C - dff15f8281f5054e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IFBooth_ios.SignUp.email.modify : Swift.String"
-                  moduleName = "IFBooth_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qwe/Desktop/ifbooth_ios/IFBooth_ios/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "57">
-               </Location>
-               <Location
-                  uuid = "83175DBE-102C-4D8C-93EA-76E0DB3E360C - c02b3f561d6dcd63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IFBooth_ios.SignUp.email.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "IFBooth_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qwe/Desktop/ifbooth_ios/IFBooth_ios/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "188"
-                  endingLineNumber = "188"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "83175DBE-102C-4D8C-93EA-76E0DB3E360C - f8203682ac491fe1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IFBooth_ios.SignUp.$email.getter : SwiftUI.Binding&lt;Swift.String&gt;"
-                  moduleName = "IFBooth_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qwe/Desktop/ifbooth_ios/IFBooth_ios/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "188"
-                  endingLineNumber = "188"
-                  offsetFromSymbolStart = "229">
-               </Location>
-            </Locations>
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "Login"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
