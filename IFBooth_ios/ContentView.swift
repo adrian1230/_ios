@@ -94,7 +94,7 @@ struct Login : View {
                     VStack {
                         Image("bac").resizable()
                             .frame(width: 252.0, height: 252.0)
-                            .padding(.top,25)
+                            .padding(.top,45)
                         Text("Come Get It")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             .fontWeight(.bold)
@@ -124,6 +124,21 @@ struct Login : View {
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color"):self.color,lineWidth: 2))
                         .padding(.top,25)
                         
+                        HStack {
+                            
+                            Button(action: {
+                                
+                            }) {
+                                Spacer()
+                                
+                                Text("Reset password")
+                                    .font(.subheadline)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("Color3"))
+                            }
+                        }
+                        .padding(.top,10)
+                        
                         Button(action: {
                             self.verify()
                         }) {
@@ -134,8 +149,8 @@ struct Login : View {
                                 .frame(width: UIScreen.main.bounds.width - 50)
                         }
                         .background(Color("Color2"))
-                        .cornerRadius(10)
-                        .padding(.top,20)
+                        .cornerRadius(15)
+                        .padding(.top,10)
                         
                         HStack {
                             Button(action: {
@@ -146,18 +161,6 @@ struct Login : View {
                                     .foregroundColor(Color("Color3"))
                             }
                             
-                        }
-                        .padding(.top,10)
-                        
-                        HStack {
-                            
-                            Button(action: {
-                                
-                            }) {
-                                Text("Forget password")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("Color3"))
-                            }
                         }
                         .padding(.top,10)
                         
@@ -276,7 +279,7 @@ struct SignUp : View {
                              .frame(width: UIScreen.main.bounds.width - 50)
                      }
                      .background(Color("Color2"))
-                     .cornerRadius(10)
+                     .cornerRadius(15)
                      .padding(.top,20)
                  }
                  .padding(.horizontal,25)
