@@ -141,7 +141,7 @@ struct Login : View {
                             Button(action: {
                                 self.show.toggle()
                             }) {
-                                Text("Got No Cart, Come Get One")
+                                Text("Come Join Us")
                                     .fontWeight(.bold)
                                     .foregroundColor(Color("Color3"))
                             }
