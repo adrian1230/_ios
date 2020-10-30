@@ -182,6 +182,7 @@ struct Login : View {
                 if err != nil {
                     self.error = err!.localizedDescription
                     self.alert.toggle()
+                    return
                 }
                 UserDefaults.standard.set(true,forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"),object: nil)
@@ -270,7 +271,7 @@ struct SignUp : View {
                         
                         
                         Button(action: {
-                            
+                            self.register()
                         }) {
                             Text("Register")
                                 .fontWeight(.bold)
@@ -305,7 +306,28 @@ struct SignUp : View {
      }
     
     func register() {
-        
+        if self.email != "" {
+            if self.pass == self.repass {
+                Auth.auth().createUser(withEmail: self.email, password: self.pass) {
+                    (res,err) in
+                    if err != nil {
+                        self.error = err!.localizedDescription
+                        self.alert.toggle()
+                        return
+                    }
+                    UserDefaults.standard.set(true,forKey: "status")
+                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                }
+            }
+            else {
+                self.error = "Password is wrong"
+                self.alert.toggle()
+            }
+        }
+        else {
+            self.error = "missing. Email is 'empty'"
+            self.alert.toggle()
+        }
     }
  }
  
