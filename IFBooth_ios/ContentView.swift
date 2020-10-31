@@ -101,6 +101,7 @@ struct Login : View {
                             .foregroundColor(Color("Color2"))
                             .padding(.top,20)
                         TextField("Email",text:self.$email)
+                            .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
                             .padding(.top,25)
@@ -108,9 +109,11 @@ struct Login : View {
                             VStack{
                                 if self.visible {
                                     TextField("Password",text: self.$pass)
+                                        .autocapitalization(.none)
                                 }
                                 else {
                                     SecureField("Password",text:self.$pass)
+                                        .autocapitalization(.none)
                                 }
                             }
                             Button(action: {
@@ -222,10 +225,12 @@ struct SignUp : View {
                             .foregroundColor(Color("Color"))
                             .padding(.top,25)
                         TextField("Username",text:self.$username)
+                            .autocapitalization(.none)
                            .padding()
                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.username != "" ? Color("Color"):self.color,lineWidth: 2))
                            .padding(.top,25)
                         TextField("Email",text:self.$email)
+                            .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color"):self.color,lineWidth: 2))
                             .padding(.top,25)
@@ -233,9 +238,11 @@ struct SignUp : View {
                             VStack{
                                 if self.visible {
                                     TextField("Password",text: self.$pass)
+                                        .autocapitalization(.none)
                                 }
                                 else {
                                     SecureField("Password",text:self.$pass)
+                                        .autocapitalization(.none)
                                 }
                             }
                             Button(action: {
@@ -253,9 +260,11 @@ struct SignUp : View {
                            VStack{
                                if self.revisible {
                                    TextField("Confirm Password",text: self.$repass)
+                                    .autocapitalization(.none)
                                }
                                else {
                                    SecureField("Confirm Password",text:self.$repass)
+                                    .autocapitalization(.none)
                                }
                            }
                            Button(action: {
