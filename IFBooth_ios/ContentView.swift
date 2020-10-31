@@ -130,7 +130,7 @@ struct Login : View {
                         HStack {
                             
                             Button(action: {
-                                
+                                self.resetPass()
                             }) {
                                 Spacer()
                                 
@@ -179,6 +179,29 @@ struct Login : View {
         }
     }
     
+    func resetPass() {
+        if self.email != "" {
+            Auth.auth().sendPasswordReset(withEmail: self.email) {
+                (err) in
+                if err != nil {
+                    self.error = err!.localizedDescription
+                    self.alert.toggle()
+                    return
+                }
+                else {
+                    self.error = "reset"
+                    self.alert.toggle()
+                    return
+                }
+            }
+        }
+        else {
+            self.error = "email is empty"
+            self.alert.toggle()
+            return
+        }
+    }
+    
     func verify() {
         if self.email != "" && self.pass != "" {
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res,err) in
@@ -217,7 +240,7 @@ struct SignUp : View {
                     VStack {
                         Image("heyo").resizable()
                            .frame(width: 172.0, height: 172.0)
-                           .padding(.top,25)
+                           .padding(.top,45)
                        
                         Text("Hey Mate, Let's Shop!")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -340,7 +363,7 @@ struct SignUp : View {
     }
  }
  
- struct ErrorViewModel : View {
+struct ErrorViewModel : View {
     @State var color = Color.black.opacity(0.4)
     @Binding var alert : Bool
     @Binding var error : String
@@ -348,7 +371,7 @@ struct SignUp : View {
         GeometryReader{_ in
             VStack {
                 HStack{
-                    Text("Err 404")
+                    Text(self.error == "reset" ? "msg" : "Err 404")
                         .font(.title)
                         .foregroundColor(self.color)
                         .fontWeight(.bold)
@@ -356,7 +379,7 @@ struct SignUp : View {
                 .padding(.horizontal,15)
                 .padding(.top,15)
                 
-                Text(self.error)
+                Text(self.error == "reset" ? "reset password sent" : self.error)
                     .foregroundColor(self.color)
                     .padding(.top,10)
                     .padding(.horizontal,15)
@@ -364,7 +387,7 @@ struct SignUp : View {
                 Button(action: {
                     self.alert.toggle()
                 }) {
-                    Text("Gotcha")
+                    Text(self.error == "reset" ? "ok":"Gotcha")
                         .foregroundColor(Color.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)
