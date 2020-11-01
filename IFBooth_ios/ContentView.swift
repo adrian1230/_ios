@@ -32,7 +32,7 @@ struct BottomTabs : View {
                 }
             BottomTabBarScreenView(filter: .explore)
                 .tabItem {
-                    Image(systemName: "checkmark.circle")
+                    Image(systemName: "flame")
                     Text("Explore")
                 }
             BottomTabBarScreenView(filter: .chat)
