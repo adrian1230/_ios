@@ -22,15 +22,42 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+struct BottomTabs : View {
+    var body: some View {
+        TabView {
+            BottomTabBarScreenView(filter: .home)
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
+            BottomTabBarScreenView(filter: .explore)
+                .tabItem {
+                    Image(systemName: "checkmark.circle")
+                    Text("Explore")
+                }
+            BottomTabBarScreenView(filter: .chat)
+                .tabItem {
+                    Image(systemName: "bubble.left")
+                    Text("Chat")
+                }
+            BottomTabBarScreenView(filter: .profile)
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Profile")
+                }
+        }
+    }
+}
+
 struct Home : View {
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             VStack {
                 if self.status {
-                    HomeScreen()
+                    BottomTabs()
                 }
                 else {
                     ZStack {
