@@ -24,6 +24,18 @@ struct BottomTabBarScreenView: View {
             return "profile"
         }
     }
+    var content: String {
+        switch filter {
+        case .home:
+            return ""
+        case .explore:
+            return ""
+        case .chat:
+            return ""
+        case .profile:
+            return ""
+        }
+    }
     var body: some View {
         NavigationView {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -40,3 +52,5 @@ struct BottomTabBarScreenView_Previews: PreviewProvider {
         BottomTabBarScreenView(filter: .home)
     }
 }
+
+
