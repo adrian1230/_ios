@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct BottomTabBarScreenView: View {
     enum FilterType {
@@ -38,8 +39,23 @@ struct BottomTabBarScreenView: View {
     }
     var body: some View {
         NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .navigationTitle(title)
+            VStack {
+                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                    .navigationTitle(title)
+                Button(action:{
+                    try! Auth.auth().signOut()
+                    UserDefaults.standard.set(false,forKey: "status")
+                    NotificationCenter.default.post(name:NSNotification.Name("status"),object:nil)
+                }){
+                    Text("logout")
+                        .foregroundColor(Color.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                }
+                .background(Color("Color"))
+                .cornerRadius(10)
+                .padding(.top,10)
+            }
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
