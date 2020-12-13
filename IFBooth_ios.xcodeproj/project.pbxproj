@@ -13,7 +13,6 @@
 		C29708812545FE1E00F1BE57 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29708802545FE1E00F1BE57 /* ContentView.swift */; };
 		C29708832545FE2200F1BE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29708822545FE2200F1BE57 /* Assets.xcassets */; };
 		C29708862545FE2200F1BE57 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29708852545FE2200F1BE57 /* Preview Assets.xcassets */; };
-		C29A93FC25508AFB00C9CDF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29A93FB25508AFA00C9CDF6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +25,6 @@
 		C29708822545FE2200F1BE57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C29708852545FE2200F1BE57 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C29708872545FE2200F1BE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C29A93FB25508AFA00C9CDF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB77AF3FEE878478C26C1719 /* Pods-IFBooth_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IFBooth_ios.debug.xcconfig"; path = "Target Support Files/Pods-IFBooth_ios/Pods-IFBooth_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +72,6 @@
 				C297087E2545FE1E00F1BE57 /* IFBooth_iosApp.swift */,
 				C29708802545FE1E00F1BE57 /* ContentView.swift */,
 				C2689D52254EC10100C579BA /* BottomTabBarScreenView.swift */,
-				C29A93FB25508AFA00C9CDF6 /* GoogleService-Info.plist */,
 				C29708822545FE2200F1BE57 /* Assets.xcassets */,
 				C29708872545FE2200F1BE57 /* Info.plist */,
 				C29708842545FE2200F1BE57 /* Preview Content */,
@@ -160,7 +157,6 @@
 			files = (
 				C29708862545FE2200F1BE57 /* Preview Assets.xcassets in Resources */,
 				C29708832545FE2200F1BE57 /* Assets.xcassets in Resources */,
-				C29A93FC25508AFB00C9CDF6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
