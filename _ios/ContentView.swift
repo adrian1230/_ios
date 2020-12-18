@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  IFBooth_ios
+//  _ios
 //
 //  Created by qwe on 26/10/2020.
 //
