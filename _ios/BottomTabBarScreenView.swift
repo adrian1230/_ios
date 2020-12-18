@@ -1,6 +1,6 @@
 //
 //  BottomTabBarScreenView.swift
-//  IFBooth_ios
+//  _ios
 //
 //  Created by qwe on 1/11/2020.
 //
